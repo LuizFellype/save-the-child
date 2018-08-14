@@ -1,0 +1,46 @@
+
+<div>
+  <input type="text" value={{inputValue}} 
+    (input)="onChange($event)" 
+    style="margin-right: 5px; width: 200px" >
+  <button (click)="warnClosing()" >Send Information to the Child</button>
+</div>
+
+<div *ngIf="!byConfirmed; else nextContent" >
+  <app-recieve-child-send
+    (answer)="func($event)"
+    [vanishing]="vanish"  
+    >
+  </app-recieve-child-send>
+</div>
+
+<ng-template #nextContent >
+  
+  <div style="display: flex; 
+    justify-content: space-evenly;
+    ">
+    <img 
+    src="../../assets/coveiro.jpg" 
+    alt="WTF, you idiot!"
+    style="margin-top: 10px; border-radius: 4px">
+    
+    <h2 style="height: 20%; border: solid 1px">
+      Hoolllyy shiiitt, you killed the daaammm child.. <br> 
+      Please, try to award yourself saving other kid
+    </h2>
+  </div>
+
+      <button 
+    (click)="showAgain()"
+    style="background: transparent; 
+    width: 120px; 
+    color: black;
+    border: 2px solid rgb(9, 90, 12);
+    margin-left: 300px;
+    margin-top: -500px"
+     >
+    <h3>
+      Let's really help a kid NOW, here!
+    </h3>
+  </button>
+</ng-template>
